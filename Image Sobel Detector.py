@@ -17,7 +17,6 @@ import time
 
 #supplemental functions 
 
-
 #starting by implementing convolution function focusing on kernel of the original image
 
 def ConvolutionFunction(OriginalImage, Kernel):
@@ -67,8 +66,6 @@ def ConvolutionFunction(OriginalImage, Kernel):
 	width = KernelWidth // 2
 	
 	
-	
-	
 	#initialize a new array of given shape and type, filled with zeros from padded image 
 	
 	ConvolvedImage = np.zeros(PaddedImage.shape)
@@ -116,12 +113,7 @@ def ConvolutionFunction(OriginalImage, Kernel):
 	
 	return ConvolvedImage[height: HeightEndPoint,  width: WidthEndPoint]
 
-
-
-
 #SobelImage function implementation 
-
-
 
 
 def SobelImage(image):
@@ -138,30 +130,24 @@ def SobelImage(image):
 	
 	Magnitude = np.sqrt(X**2 + Y**2)
 	
-	
 	Orientation = np.arctan(Y , X)
-	
 	
 	return (Magnitude.astype(np.uint8), Orientation.astype(np.uint8))
 
 
-
-
 #Driver/Testing code
-
-#Required test:
 
 #Compute Sobel edge filter on ”LadyBug.jpg” and save as ”5a.png” and ”5b.png”.
 
 
-a = SobelImage('hw1_data/LadyBug.jpg')[0]
+a = SobelImage('LadyBug.jpg')[0]
 
 plt.imshow(a, cmap='gray')
 
 plt.imsave('5a.png', a, cmap = 'gray')
 
 
-b = SobelImage('hw1_data/LadyBug.jpg')[1]
+b = SobelImage('LadyBug.jpg')[1]
 
 plt.imshow(a, cmap= 'gray')
 
@@ -169,25 +155,19 @@ plt.imsave('5b.png',b, cmap= 'gray')
 
 #out of range if greater than 1
 
+#extra testing 
 
 
-#Written Assognment:
-
-
-b = SobelImage('hw1_data/TightRope.png')[0]
+b = SobelImage('TightRope.png')[0]
 
 plt.imshow(b, cmap='gray')
 
 plt.imsave('S2Q3E0.png', b, cmap = 'gray')
 
 
-
-
-c = SobelImage('hw1_data/TightRope.png')[1]
+c = SobelImage('TightRope.png')[1]
 
 plt.imshow(c, cmap='gray')
 
 plt.imsave('S2Q3E1.png', c, cmap = 'gray')
-
-
 
